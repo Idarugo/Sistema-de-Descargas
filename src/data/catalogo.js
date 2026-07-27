@@ -277,6 +277,7 @@ export const PRODUCTOS = [
     nombre: 'Ubuntu',
     categoria: 'linux',
     fabricante: 'Canonical',
+    familia: 'Debian / Ubuntu',
     estado: 'oficial',
     plataformas: ['Linux'],
     etiquetas: ['iso', 'linux', 'lts', 'debian'],
@@ -293,6 +294,7 @@ export const PRODUCTOS = [
     nombre: 'Debian',
     categoria: 'linux',
     fabricante: 'Proyecto Debian',
+    familia: 'Debian',
     estado: 'oficial',
     plataformas: ['Linux'],
     etiquetas: ['iso', 'linux', 'servidor', 'estable'],
@@ -308,6 +310,7 @@ export const PRODUCTOS = [
     nombre: 'Linux Mint',
     categoria: 'linux',
     fabricante: 'Linux Mint',
+    familia: 'Debian / Ubuntu',
     estado: 'oficial',
     plataformas: ['Linux'],
     etiquetas: ['iso', 'linux', 'cinnamon', 'principiantes'],
@@ -322,13 +325,16 @@ export const PRODUCTOS = [
     nombre: 'Fedora',
     categoria: 'linux',
     fabricante: 'Red Hat / Fedora Project',
+    familia: 'Red Hat / RPM',
     estado: 'oficial',
     plataformas: ['Linux'],
     etiquetas: ['iso', 'linux', 'gnome', 'red hat'],
-    descripcion: 'Siempre con las últimas versiones del kernel y GNOME. Base upstream de RHEL.',
+    descripcion:
+      'Patrocinada por Red Hat y mantenida por la comunidad. Siempre con las últimas versiones del kernel y GNOME; es la base upstream de RHEL.',
+    nota: 'La web oficial tiene versión en español y el instalador Anaconda también.',
     versiones: [
-      { nombre: 'Fedora Workstation', arquitectura: 'x64 · ARM64', formato: 'ISO', tamano: '~2,2 GB', idioma: 'multi', url: 'https://fedoraproject.org/workstation/download' },
-      { nombre: 'Fedora Server', arquitectura: 'x64 · ARM64', formato: 'ISO', tamano: '~2,5 GB', idioma: 'multi', url: 'https://fedoraproject.org/server/download' },
+      { nombre: 'Fedora Workstation', arquitectura: 'x64 · ARM64', formato: 'ISO', tamano: '~2,2 GB', idioma: 'es', url: 'https://fedoraproject.org/es/workstation/download' },
+      { nombre: 'Fedora Server', arquitectura: 'x64 · ARM64', formato: 'ISO', tamano: '~2,5 GB', idioma: 'es', url: 'https://fedoraproject.org/es/server/download' },
     ],
   },
   {
@@ -336,6 +342,7 @@ export const PRODUCTOS = [
     nombre: 'Arch Linux',
     categoria: 'linux',
     fabricante: 'Arch Linux',
+    familia: 'Arch',
     estado: 'oficial',
     plataformas: ['Linux'],
     etiquetas: ['iso', 'linux', 'rolling release', 'avanzado'],
@@ -350,6 +357,7 @@ export const PRODUCTOS = [
     nombre: 'Zorin OS',
     categoria: 'linux',
     fabricante: 'Zorin Group',
+    familia: 'Debian / Ubuntu',
     estado: 'oficial',
     plataformas: ['Linux'],
     etiquetas: ['iso', 'linux', 'windows-like'],
@@ -363,6 +371,7 @@ export const PRODUCTOS = [
     nombre: 'Kali Linux',
     categoria: 'linux',
     fabricante: 'OffSec',
+    familia: 'Debian',
     estado: 'oficial',
     plataformas: ['Linux'],
     etiquetas: ['iso', 'linux', 'seguridad', 'pentesting'],
@@ -370,6 +379,294 @@ export const PRODUCTOS = [
     nota: 'Úsala solo sobre sistemas propios o con autorización expresa por escrito. El instalador (basado en Debian) permite elegir español.',
     versiones: [
       { nombre: 'Kali Installer / Live / VM', arquitectura: 'x64 · ARM64', formato: 'ISO / OVA', tamano: '~4 GB', idioma: 'multi', url: 'https://www.kali.org/get-kali/' },
+    ],
+  },
+  {
+    id: 'mx-linux',
+    nombre: 'MX Linux',
+    categoria: 'linux',
+    fabricante: 'MX Community · antiX',
+    familia: 'Debian',
+    estado: 'oficial',
+    plataformas: ['Linux'],
+    etiquetas: ['iso', 'linux', 'xfce', 'kde', 'ligera', 'distrowatch'],
+    descripcion:
+      'Peso medio basada en la rama Estable de Debian, con tecnología de MEPIS y antiX. Lleva años en lo más alto del ranking de DistroWatch.',
+    nota: 'Elige el sabor por escritorio (Xfce, KDE o Fluxbox). Las variantes «ahs» (Advanced Hardware Support) traen kernel y drivers más nuevos para equipos recientes.',
+    versiones: [
+      { nombre: 'MX Linux Xfce (recomendada)', arquitectura: 'x64', formato: 'ISO', tamano: '~2,1 GB', idioma: 'multi', url: 'https://mxlinux.org/download-links/' },
+    ],
+  },
+  {
+    id: 'pop-os',
+    nombre: 'Pop!_OS',
+    categoria: 'linux',
+    fabricante: 'System76',
+    familia: 'Debian / Ubuntu',
+    estado: 'oficial',
+    plataformas: ['Linux'],
+    etiquetas: ['iso', 'linux', 'nvidia', 'gaming', 'desarrollo'],
+    descripcion:
+      'Basada en Ubuntu, pensada para desarrollo y videojuegos. Gestión de ventanas por mosaico y una ISO específica con drivers NVIDIA ya incluidos.',
+    nota: 'Descarga la variante NVIDIA si tienes gráfica de esa marca: te ahorra la instalación manual de los drivers propietarios.',
+    versiones: [
+      { nombre: 'Pop!_OS (Intel/AMD y NVIDIA)', arquitectura: 'x64', formato: 'ISO', tamano: '~2,6 GB', idioma: 'multi', url: 'https://system76.com/pop/download/' },
+    ],
+  },
+  {
+    id: 'elementary',
+    nombre: 'elementary OS',
+    categoria: 'linux',
+    fabricante: 'elementary, Inc.',
+    familia: 'Debian / Ubuntu',
+    estado: 'oficial',
+    plataformas: ['Linux'],
+    etiquetas: ['iso', 'linux', 'diseño', 'macos', 'pantheon'],
+    descripcion:
+      'Basada en Ubuntu, con el escritorio Pantheon. La distribución más cuidada estéticamente; muy cómoda si vienes de macOS.',
+    nota: 'La descarga usa un modelo de «paga lo que quieras»: puedes escribir 0 en el importe personalizado para bajarla gratis.',
+    versiones: [
+      { nombre: 'elementary OS', arquitectura: 'x64', formato: 'ISO', tamano: '~3,0 GB', idioma: 'es', url: 'https://elementary.io/es/' },
+    ],
+  },
+  {
+    id: 'raspberry-pi-os',
+    nombre: 'Raspberry Pi OS',
+    categoria: 'linux',
+    fabricante: 'Raspberry Pi Foundation',
+    familia: 'Debian',
+    estado: 'oficial',
+    plataformas: ['Linux'],
+    etiquetas: ['iso', 'img', 'raspberry pi', 'arm', 'sbc'],
+    descripcion:
+      'El sistema oficial de la Raspberry Pi, port de Debian. Ediciones Full (con aplicaciones), Standard y Lite (sin escritorio, para servidores).',
+    nota: 'Se graba en la microSD con Raspberry Pi Imager o balenaEtcher, no con Rufus. El Imager permite preconfigurar wifi, usuario y SSH antes del primer arranque.',
+    versiones: [
+      { nombre: 'Raspberry Pi OS 64-bit (Standard)', arquitectura: 'ARM64', formato: 'IMG', tamano: '~1,3 GB', idioma: 'multi', url: 'https://www.raspberrypi.com/software/operating-systems/' },
+      { nombre: 'Raspberry Pi OS Lite (sin escritorio)', arquitectura: 'ARM64 · ARM', formato: 'IMG', tamano: '~500 MB', idioma: 'multi', url: 'https://www.raspberrypi.com/software/operating-systems/' },
+    ],
+  },
+  {
+    id: 'antix',
+    nombre: 'antiX',
+    categoria: 'linux',
+    fabricante: 'antiX Community',
+    familia: 'Debian',
+    estado: 'oficial',
+    plataformas: ['Linux'],
+    etiquetas: ['iso', 'linux', 'ligera', 'pc antiguo', 'sin systemd'],
+    descripcion:
+      'Ultraligera y sin systemd, basada en Debian Estable. La opción para revivir equipos con 512 MB de RAM o procesadores de hace 15 años.',
+    nota: 'La edición «core» ocupa unos 400 MB y arranca sin escritorio; la «full» trae todo listo para usar.',
+    versiones: [
+      { nombre: 'antiX Full / Base / Core', arquitectura: 'x64 · x86', formato: 'ISO', tamano: '0,4–1,7 GB', idioma: 'multi', url: 'https://antixlinux.com/download/' },
+    ],
+  },
+  {
+    id: 'manjaro',
+    nombre: 'Manjaro',
+    categoria: 'linux',
+    fabricante: 'Manjaro GmbH',
+    familia: 'Arch',
+    estado: 'oficial',
+    plataformas: ['Linux'],
+    etiquetas: ['iso', 'linux', 'arch', 'rolling release', 'instalador gráfico'],
+    descripcion:
+      'Todo lo bueno de Arch —rolling release y el repositorio AUR— pero con instalador gráfico y paquetes que pasan por un filtro de estabilidad.',
+    nota: 'La forma más accesible de usar Arch sin instalarlo a mano. Elige escritorio: KDE Plasma, GNOME o Xfce.',
+    versiones: [
+      { nombre: 'Manjaro (KDE / GNOME / Xfce)', arquitectura: 'x64', formato: 'ISO', tamano: '~4,0 GB', idioma: 'multi', url: 'https://manjaro.org/products/download/x86' },
+    ],
+  },
+  {
+    id: 'endeavouros',
+    nombre: 'EndeavourOS',
+    categoria: 'linux',
+    fabricante: 'EndeavourOS Team',
+    familia: 'Arch',
+    estado: 'oficial',
+    plataformas: ['Linux'],
+    etiquetas: ['iso', 'linux', 'arch', 'rolling release'],
+    descripcion:
+      'Arch puro con un instalador gráfico (Calamares) y poco más. Para quien quiere el Arch de verdad sin teclear la instalación entera.',
+    versiones: [
+      { nombre: 'EndeavourOS', arquitectura: 'x64 · ARM64', formato: 'ISO', tamano: '~2,5 GB', idioma: 'multi', url: 'https://endeavouros.com/download/' },
+    ],
+  },
+  {
+    id: 'opensuse',
+    nombre: 'openSUSE',
+    categoria: 'linux',
+    fabricante: 'SUSE / openSUSE Project',
+    familia: 'Red Hat / RPM',
+    estado: 'oficial',
+    plataformas: ['Linux'],
+    etiquetas: ['iso', 'linux', 'leap', 'tumbleweed', 'yast', 'btrfs'],
+    descripcion:
+      'Dos ediciones: Leap (estable, versiones fijas) y Tumbleweed (rolling release). Destaca por YaST y por Btrfs con instantáneas para deshacer actualizaciones.',
+    nota: 'Si es tu equipo de trabajo, Leap. Si quieres lo último, Tumbleweed: sus snapshots permiten volver atrás si una actualización rompe algo.',
+    versiones: [
+      { nombre: 'openSUSE Leap / Tumbleweed', arquitectura: 'x64 · ARM64', formato: 'ISO', tamano: '~4,7 GB', idioma: 'multi', url: 'https://get.opensuse.org/' },
+    ],
+  },
+  {
+    id: 'rhel',
+    nombre: 'Red Hat Enterprise Linux',
+    categoria: 'linux',
+    fabricante: 'Red Hat',
+    familia: 'Red Hat / RPM',
+    estado: 'oficial',
+    plataformas: ['Linux'],
+    etiquetas: ['iso', 'linux', 'rhel', 'empresa', 'servidor', 'soporte'],
+    descripcion:
+      'La distribución comercial de referencia en empresa: diez años de soporte por versión y certificaciones de hardware y software.',
+    nota:
+      'La suscripción Red Hat Developer es gratuita e incluye hasta 16 sistemas para desarrollo y pruebas. Requiere crear una cuenta Red Hat; para producción hace falta suscripción de pago.',
+    versiones: [
+      { nombre: 'RHEL · Developer Subscription (gratuita)', arquitectura: 'x64 · ARM64', formato: 'ISO', tamano: '~11 GB', idioma: 'multi', url: 'https://developers.redhat.com/products/rhel/download' },
+      { nombre: 'Portal de descargas Red Hat (clientes)', arquitectura: 'x64 · ARM64', formato: 'ISO', tamano: '~11 GB', idioma: 'multi', url: 'https://access.redhat.com/downloads/' },
+    ],
+  },
+  {
+    id: 'almalinux',
+    nombre: 'AlmaLinux',
+    categoria: 'linux',
+    fabricante: 'AlmaLinux OS Foundation',
+    familia: 'Red Hat / RPM',
+    estado: 'oficial',
+    plataformas: ['Linux'],
+    etiquetas: ['iso', 'linux', 'rhel', 'servidor', 'gratis', 'centos'],
+    descripcion:
+      'Clon gratuito y compatible binario con RHEL, mantenido por una fundación sin ánimo de lucro. Uno de los dos sucesores naturales de CentOS.',
+    nota: 'La ISO «minimal» (~2 GB) basta para un servidor; la DVD trae los paquetes para instalar sin conexión.',
+    versiones: [
+      { nombre: 'AlmaLinux (DVD / minimal / boot)', arquitectura: 'x64 · ARM64', formato: 'ISO', tamano: '2–11 GB', idioma: 'multi', url: 'https://almalinux.org/get-almalinux/' },
+    ],
+  },
+  {
+    id: 'rocky',
+    nombre: 'Rocky Linux',
+    categoria: 'linux',
+    fabricante: 'Rocky Enterprise Software Foundation',
+    familia: 'Red Hat / RPM',
+    estado: 'oficial',
+    plataformas: ['Linux'],
+    etiquetas: ['iso', 'linux', 'rhel', 'servidor', 'gratis', 'centos'],
+    descripcion:
+      'El otro clon compatible con RHEL, fundado por el creador original de CentOS tras el cambio de rumbo de Red Hat.',
+    versiones: [
+      { nombre: 'Rocky Linux (DVD / minimal / boot)', arquitectura: 'x64 · ARM64', formato: 'ISO', tamano: '2–11 GB', idioma: 'multi', url: 'https://rockylinux.org/download' },
+    ],
+  },
+  {
+    id: 'centos-stream',
+    nombre: 'CentOS Stream',
+    categoria: 'linux',
+    fabricante: 'Red Hat / CentOS Project',
+    familia: 'Red Hat / RPM',
+    estado: 'oficial',
+    plataformas: ['Linux'],
+    etiquetas: ['iso', 'linux', 'servidor', 'rhel'],
+    descripcion:
+      'La rama de desarrollo continuo que va por delante de RHEL. Ya no es el clon estable que era el CentOS clásico.',
+    nota: 'Si buscabas «CentOS» como servidor estable, lo que quieres hoy es AlmaLinux o Rocky Linux. CentOS Stream sirve para probar lo que llegará a RHEL.',
+    versiones: [
+      { nombre: 'CentOS Stream', arquitectura: 'x64 · ARM64', formato: 'ISO', tamano: '~11 GB', idioma: 'multi', url: 'https://www.centos.org/download/' },
+    ],
+  },
+  {
+    id: 'gentoo',
+    nombre: 'Gentoo',
+    categoria: 'linux',
+    fabricante: 'Gentoo Foundation',
+    familia: 'Independiente',
+    estado: 'oficial',
+    plataformas: ['Linux'],
+    etiquetas: ['iso', 'linux', 'compilar', 'portage', 'avanzado'],
+    descripcion:
+      'Meta-distribución basada en código fuente: cada paquete se compila para tu máquina con el gestor Portage. Personalización total a cambio de tiempo de compilación.',
+    nota: 'No es para empezar. La instalación se hace siguiendo el Handbook paso a paso y puede llevar horas.',
+    versiones: [
+      { nombre: 'Gentoo minimal / LiveGUI / stage3', arquitectura: 'x64 · ARM64', formato: 'ISO / TAR', tamano: '0,7–4 GB', idioma: 'en', url: 'https://www.gentoo.org/downloads/' },
+    ],
+  },
+  {
+    id: 'slackware',
+    nombre: 'Slackware Linux',
+    categoria: 'linux',
+    fabricante: 'Patrick Volkerding',
+    familia: 'Independiente',
+    estado: 'oficial',
+    plataformas: ['Linux'],
+    etiquetas: ['iso', 'linux', 'clásica', 'unix', 'avanzado'],
+    descripcion:
+      'La distribución viva más antigua (1993). Filosofía de simplicidad y fidelidad a UNIX: casi ninguna herramienta propia, todo se configura a mano.',
+    versiones: [
+      { nombre: 'Slackware (ISO / mirrors)', arquitectura: 'x64 · x86', formato: 'ISO', tamano: '~4 GB', idioma: 'en', url: 'http://www.slackware.com/getslack/' },
+    ],
+  },
+  {
+    id: 'alpine',
+    nombre: 'Alpine Linux',
+    categoria: 'linux',
+    fabricante: 'Alpine Linux Development Team',
+    familia: 'Independiente',
+    estado: 'oficial',
+    plataformas: ['Linux'],
+    etiquetas: ['iso', 'linux', 'docker', 'contenedores', 'ligera', 'seguridad'],
+    descripcion:
+      'Mínima y orientada a seguridad, construida sobre musl y BusyBox. Es la base de la mayoría de imágenes Docker por lo poco que ocupa.',
+    nota: 'La variante «virtual» pesa unos 60 MB y está pensada para máquinas virtuales y contenedores.',
+    versiones: [
+      { nombre: 'Alpine Standard / Virtual / Extended', arquitectura: 'x64 · ARM64', formato: 'ISO', tamano: '60 MB – 1 GB', idioma: 'en', url: 'https://alpinelinux.org/downloads/' },
+    ],
+  },
+  {
+    id: 'nixos',
+    nombre: 'NixOS',
+    categoria: 'linux',
+    fabricante: 'NixOS Foundation',
+    familia: 'Independiente',
+    estado: 'oficial',
+    plataformas: ['Linux'],
+    etiquetas: ['iso', 'linux', 'declarativo', 'reproducible', 'nix'],
+    descripcion:
+      'Sistema declarativo: todo el equipo se describe en un único archivo de configuración y cada cambio se puede revertir arrancando la generación anterior.',
+    nota: 'Curva de aprendizaje alta, pero es la forma más fiable de reproducir un sistema idéntico en otra máquina.',
+    versiones: [
+      { nombre: 'NixOS (gráfica / mínima)', arquitectura: 'x64 · ARM64', formato: 'ISO', tamano: '1–2,5 GB', idioma: 'en', url: 'https://nixos.org/download/' },
+    ],
+  },
+  {
+    id: 'tails',
+    nombre: 'Tails',
+    categoria: 'linux',
+    fabricante: 'Tails Project',
+    familia: 'Debian',
+    estado: 'oficial',
+    plataformas: ['Linux'],
+    etiquetas: ['usb', 'privacidad', 'anonimato', 'tor', 'amnésica', 'live'],
+    descripcion:
+      'Sistema amnésico que arranca desde USB y no deja rastro en el equipo: toda la conexión pasa por Tor y al apagar se borra todo de la memoria.',
+    nota: 'No se instala en el disco duro, se ejecuta desde el USB. La web y el instalador están traducidos al español.',
+    versiones: [
+      { nombre: 'Tails (imagen USB)', arquitectura: 'x64', formato: 'IMG / ISO', tamano: '~1,5 GB', idioma: 'es', url: 'https://tails.net/install/index.es.html' },
+    ],
+  },
+  {
+    id: 'freebsd',
+    nombre: 'FreeBSD',
+    categoria: 'linux',
+    fabricante: 'FreeBSD Foundation',
+    familia: 'BSD (no es Linux)',
+    estado: 'oficial',
+    plataformas: ['Linux'],
+    etiquetas: ['iso', 'bsd', 'servidor', 'unix', 'zfs'],
+    descripcion:
+      'No es Linux sino un UNIX de la familia BSD, pero comparte casi todo el software. Muy valorado como servidor por su estabilidad, su red y ZFS.',
+    nota: 'Se incluye aquí porque DistroWatch lo lista junto a las distribuciones principales. En escritorio da más trabajo que cualquier Linux.',
+    versiones: [
+      { nombre: 'FreeBSD (disc1 / memstick)', arquitectura: 'x64 · ARM64', formato: 'ISO / IMG', tamano: '~1,3 GB', idioma: 'en', url: 'https://www.freebsd.org/where/' },
     ],
   },
 
@@ -910,6 +1207,18 @@ export const PRODUCTOS = [
 
 // Derivados útiles para los filtros de la interfaz
 export const PLATAFORMAS = [...new Set(PRODUCTOS.flatMap((p) => p.plataformas))].sort()
+
+/**
+ * Familias (solo las usan las distribuciones Linux): Debian, Debian/Ubuntu, Arch,
+ * Red Hat/RPM, Independiente y BSD. Ordenadas de mayor a menor número de distros
+ * para que el desplegable empiece por lo más habitual.
+ */
+export const FAMILIAS = [...new Set(PRODUCTOS.map((p) => p.familia).filter(Boolean))].sort(
+  (a, b) => {
+    const n = (f) => PRODUCTOS.filter((p) => p.familia === f).length
+    return n(b) - n(a) || a.localeCompare(b, 'es')
+  }
+)
 
 export const FORMATOS = [
   ...new Set(

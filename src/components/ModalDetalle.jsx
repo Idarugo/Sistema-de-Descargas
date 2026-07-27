@@ -62,6 +62,7 @@ export default function ModalDetalle({ producto, esFavorito, onFavorito, onCerra
               <span className="chip chip-estado" style={{ '--color-chip': estado.color }}>
                 {estado.etiqueta}
               </span>
+              {producto.familia && <span className="chip chip-familia">{producto.familia}</span>}
               {producto.plataformas.map((p) => (
                 <span key={p} className="chip chip-suave">
                   {p}

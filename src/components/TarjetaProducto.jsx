@@ -58,6 +58,7 @@ export default function TarjetaProducto({
             {IDIOMAS[idiomaPrincipal.idioma].etiqueta}
           </span>
         )}
+        {producto.familia && <span className="chip chip-familia">{producto.familia}</span>}
         {disponible && <span className="chip">{principal.formato}</span>}
         {disponible && principal.tamano !== '—' && <span className="chip">{principal.tamano}</span>}
         {producto.versiones.length > 1 && (

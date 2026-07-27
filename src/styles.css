@@ -438,6 +438,13 @@ svg {
   font-weight: 500;
 }
 
+/* Familia de la distribución (Debian, Arch, Red Hat…) */
+.chip-familia {
+  background: color-mix(in srgb, var(--color-cat) 12%, transparent);
+  border-color: color-mix(in srgb, var(--color-cat) 32%, transparent);
+  color: color-mix(in srgb, var(--color-cat) 75%, white);
+}
+
 .etiqueta-idioma {
   font-family: 'Fira Code', monospace;
   font-size: 9.5px;

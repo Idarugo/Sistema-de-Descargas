@@ -70,6 +70,24 @@ opcionalmente `enlaceInfo`.
 Las categorías se definen en [`src/data/categorias.js`](src/data/categorias.js); el color de cada
 una tiñe el icono del menú lateral.
 
+## Distribuciones Linux
+
+La categoría Linux cubre las 10 «major distributions» de
+[DistroWatch](https://distrowatch.com/dwres-mobile.php?resource=major) —más FreeBSD, que esa página
+lista aparte— y las derivadas más descargadas. Cada distro declara una `familia`, que se muestra
+como etiqueta y alimenta un desplegable **«Todas las familias»** que solo aparece dentro de Linux:
+
+| Familia | Distribuciones |
+|---|---|
+| Debian | Debian, MX Linux, Kali, Raspberry Pi OS, antiX, Tails |
+| Debian / Ubuntu | Ubuntu, Linux Mint, Zorin OS, Pop!_OS, elementary OS |
+| Red Hat / RPM | Fedora, openSUSE, RHEL, AlmaLinux, Rocky Linux, CentOS Stream |
+| Arch | Arch Linux, Manjaro, EndeavourOS |
+| Independiente | Gentoo, Slackware, Alpine Linux, NixOS |
+| BSD | FreeBSD |
+
+La familia también entra en el buscador: escribir `arch` devuelve Arch, Manjaro y EndeavourOS.
+
 ## Idioma de las descargas
 
 Cada versión declara su `idioma` y la interfaz lo muestra como una etiqueta:

@@ -1,6 +1,6 @@
 import { useState, useMemo, useEffect, useCallback } from 'react'
 import { Inbox, Menu, ScanSearch, Search, Trash2, X } from 'lucide-react'
-import { PRODUCTOS, PLATAFORMAS, IDIOMAS, tieneEspanol } from './data/catalogo.js'
+import { PRODUCTOS, PLATAFORMAS, FAMILIAS, IDIOMAS, tieneEspanol } from './data/catalogo.js'
 import { CATEGORIAS, CATEGORIA_POR_ID } from './data/categorias.js'
 import { almacen } from './storage.js'
 import Sidebar from './components/Sidebar.jsx'
@@ -23,6 +23,7 @@ export default function App() {
   const [busqueda, setBusqueda] = useState('')
   const [categoria, setCategoria] = useState('todas')
   const [plataforma, setPlataforma] = useState('todas')
+  const [familia, setFamilia] = useState('todas')
   const [soloDisponibles, setSoloDisponibles] = useState(false)
   const [soloEspanol, setSoloEspanol] = useState(false)
   const [orden, setOrden] = useState('relevancia')
@@ -62,6 +63,7 @@ export default function App() {
         return false
       }
       if (plataforma !== 'todas' && !p.plataformas.includes(plataforma)) return false
+      if (familia !== 'todas' && p.familia !== familia) return false
       if (soloDisponibles && p.versiones.length === 0) return false
       if (soloEspanol && !tieneEspanol(p)) return false
       if (!q) return true
@@ -69,6 +71,7 @@ export default function App() {
       const heno = [
         p.nombre,
         p.fabricante,
+        p.familia || '',
         p.descripcion,
         ...p.etiquetas,
         ...p.versiones.map((v) => v.nombre),
@@ -86,7 +89,7 @@ export default function App() {
       return dif !== 0 ? dif : a.nombre.localeCompare(b.nombre, 'es')
     })
     return lista
-  }, [busqueda, categoria, plataforma, soloDisponibles, soloEspanol, orden, favoritos])
+  }, [busqueda, categoria, plataforma, familia, soloDisponibles, soloEspanol, orden, favoritos])
 
   const itemsCola = useMemo(
     () => cola.map((id) => PRODUCTOS.find((p) => p.id === id)).filter(Boolean),
@@ -171,12 +174,18 @@ export default function App() {
     setBusqueda('')
     setCategoria('todas')
     setPlataforma('todas')
+    setFamilia('todas')
     setSoloDisponibles(false)
     setSoloEspanol(false)
   }
 
   const hayFiltros =
-    busqueda || categoria !== 'todas' || plataforma !== 'todas' || soloDisponibles || soloEspanol
+    busqueda ||
+    categoria !== 'todas' ||
+    plataforma !== 'todas' ||
+    familia !== 'todas' ||
+    soloDisponibles ||
+    soloEspanol
 
   const tituloVista =
     categoria === 'todas'
@@ -196,6 +205,7 @@ export default function App() {
         categoriaActiva={categoria}
         onCategoria={(c) => {
           setCategoria(c)
+          if (c !== 'linux') setFamilia('todas')
           setMenuAbierto(false)
         }}
         conteos={conteos}
@@ -251,6 +261,18 @@ export default function App() {
               </option>
             ))}
           </select>
+
+          {/* La familia solo tiene sentido dentro de Linux: ahí es donde hay 25 distros */}
+          {categoria === 'linux' && (
+            <select value={familia} onChange={(e) => setFamilia(e.target.value)}>
+              <option value="todas">Todas las familias</option>
+              {FAMILIAS.map((f) => (
+                <option key={f} value={f}>
+                  {f}
+                </option>
+              ))}
+            </select>
+          )}
 
           <select value={orden} onChange={(e) => setOrden(e.target.value)}>
             {Object.entries(ORDENES).map(([k, v]) => (
