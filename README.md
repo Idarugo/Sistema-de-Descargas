@@ -42,18 +42,24 @@ Todo el contenido vive en [`src/data/catalogo.js`](src/data/catalogo.js). Añade
 
 ```js
 {
-  id: 'mi-programa',              // único
+  id: 'mi-programa',              // único; es también la clave del icono en iconos.jsx
   nombre: 'Mi Programa',
   categoria: 'utilidades',        // un id de src/data/categorias.js
   fabricante: 'Quien lo hace',
-  icono: '🔧',
   estado: 'oficial',              // oficial | evaluacion | descontinuado
   plataformas: ['Windows'],
   etiquetas: ['para', 'el', 'buscador'],
   descripcion: 'Qué hace, en una o dos frases.',
   nota: 'Consejo opcional que aparece en la ficha.',
   versiones: [
-    { nombre: 'Versión estable', arquitectura: 'x64', formato: 'EXE', tamano: '~50 MB', url: 'https://…' },
+    {
+      nombre: 'Versión estable',
+      arquitectura: 'x64',
+      formato: 'EXE',
+      tamano: '~50 MB',
+      idioma: 'es',               // es | multi | en
+      url: 'https://…',
+    },
   ],
 }
 ```
@@ -62,7 +68,37 @@ Para un producto descontinuado, deja `versiones: []` y rellena `alternativa` (te
 opcionalmente `enlaceInfo`.
 
 Las categorías se definen en [`src/data/categorias.js`](src/data/categorias.js); el color de cada
-una tiñe los iconos y los bordes de sus tarjetas.
+una tiñe el icono del menú lateral.
+
+## Idioma de las descargas
+
+Cada versión declara su `idioma` y la interfaz lo muestra como una etiqueta:
+
+| Valor | Etiqueta | Significa |
+|---|---|---|
+| `es` | Español | La página y el instalador están en español (URLs `es-es`, `intl/es`, `.es.html`) |
+| `multi` | Multilingüe | Instalador único: eliges el idioma al descargar o durante la instalación |
+| `en` | Solo en inglés | No existe versión traducida |
+
+El botón **Descargar** de cada tarjeta abre siempre la versión en español si el producto tiene una;
+si no, la primera de la lista. El filtro **«Solo en español»** deja únicamente los productos con al
+menos una versión `es`.
+
+## Iconos
+
+Sin emojis: dos librerías npm, cada una para lo suyo, mapeadas en
+[`src/data/iconos.jsx`](src/data/iconos.jsx).
+
+- **[`@icons-pack/react-simple-icons`](https://www.npmjs.com/package/@icons-pack/react-simple-icons)**
+  — logos de marca reales (Ubuntu, Debian, Chrome, Firefox, Apple, Docker, Git…).
+- **[`lucide-react`](https://lucide.dev)** — iconos de interfaz, iconos de categoría y sustitutos
+  para las marcas que Simple Icons ya no distribuye: Microsoft, Adobe y Oracle las retiraron por
+  marca registrada, así que Windows, Office, Edge o Acrobat usan iconos genéricos de Lucide.
+
+Ambas librerías exportan un componente por icono y se sacuden en el build (*tree-shaking*), así que
+solo pesa lo que se usa. Para añadir el icono de un producto nuevo, añade su `id` a `POR_PRODUCTO`
+en `iconos.jsx` con `[Componente, '#color']`. Los colores están ajustados para leerse sobre fondo
+oscuro (varias marcas usan negro o azules muy saturados que desaparecerían en el tema).
 
 ## Estructura
 
@@ -73,7 +109,8 @@ src/
 ├── styles.css                 Tema oscuro completo
 ├── data/
 │   ├── catalogo.js            ← el contenido está aquí
-│   └── categorias.js
+│   ├── categorias.js
+│   └── iconos.jsx             ← mapa id → icono + color
 └── components/
     ├── Sidebar.jsx
     ├── TarjetaProducto.jsx
